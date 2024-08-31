@@ -6,6 +6,15 @@ interface AllStyle
 
 export default ({ layout, backgrounds, fonts }: ComponentTheme) => {
 	return {
+		avatarCircle: {
+			...layout.justifyCenter,
+			...layout.itemsCenter,
+			...backgrounds.purple100,
+			...fonts.gray400,
+			height: 40,
+			width: 40,
+			borderRadius: 35,
+		},
 		buttonCircle: {
 			...layout.justifyCenter,
 			...layout.itemsCenter,
