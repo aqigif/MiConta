@@ -9,7 +9,7 @@ import { FlashList } from '@shopify/flash-list';
 import { Contacts } from '@/types/contacts';
 import { useCallback, useMemo } from 'react';
 
-import contactListDummyData from '@/dummy_data/contacts_list.json';
+import contactListDummyData from '@/dummyDatas/contacts_list.json';
 import { RootScreenProps } from '@/types/navigation';
 import CardContactItem from '@/components/molecules/CardContactItem/CardContactItem';
 
