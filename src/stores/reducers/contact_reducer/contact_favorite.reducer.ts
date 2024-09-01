@@ -9,7 +9,7 @@ const initialState: ContactFavoriteState = {
 	data: null,
 };
 
-export const contactDetailSlice = createSlice({
+export const contactFavoriteSlice = createSlice({
 	name: 'contactFavorite',
 	initialState,
 	reducers: {
@@ -19,5 +19,4 @@ export const contactDetailSlice = createSlice({
 	},
 });
 
-export const { setFavorite } = contactDetailSlice.actions;
-export default contactDetailSlice.reducer;
+export default contactFavoriteSlice.reducer;

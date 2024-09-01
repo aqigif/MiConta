@@ -10,10 +10,9 @@ import { useCallback, useEffect } from 'react';
 
 import { RootScreenProps } from '@/types/navigation';
 import CardContactItem from '@/components/molecules/CardContactItem/CardContactItem';
-import { fetchContactList } from '@/stores/actions/contact_action';
+import { fetchContactList, setFavorite } from '@/stores/actions/contact_action';
 import { useAppDispatch, useAppSelector } from '@/hooks/redux';
 import { Spacer } from '@/components/atoms';
-import { setFavorite } from '@/stores/reducer/contact_favorite.reducer';
 import { TContact } from '@/types/contacts';
 
 function ContactList({ navigation }: RootScreenProps<'ContactList'>) {
@@ -76,7 +75,9 @@ function ContactList({ navigation }: RootScreenProps<'ContactList'>) {
 					renderItem={({ item }) => (
 						<CardContactItem
 							onPress={handleGoToContactDetail(item.id)}
-							onFavoritePress={handleFavorite(item)}
+							onFavoritePress={handleFavorite(
+								item.id === favoritedContact?.id ? null : item,
+							)}
 							id={item.id}
 							name={item.name}
 							phone={item.phone}

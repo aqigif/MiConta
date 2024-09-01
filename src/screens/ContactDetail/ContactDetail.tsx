@@ -7,10 +7,12 @@ import { ArrowLeft, StarFilled, StarOutlined } from '@/theme/assets/icons';
 import { RootScreenProps } from '@/types/navigation';
 import { useAppDispatch, useAppSelector } from '@/hooks/redux';
 import { useEffect, useMemo } from 'react';
-import { fetchContactDetail } from '@/stores/actions/contact_action';
+import {
+	fetchContactDetail,
+	setFavorite,
+} from '@/stores/actions/contact_action';
 import { getInitials } from '@/utils/string';
 import { Button } from '@/components/atoms';
-import { setFavorite } from '@/stores/reducer/contact_favorite.reducer';
 
 function ContactDetail({
 	navigation,

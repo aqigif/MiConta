@@ -3,7 +3,7 @@ import {
 	contactListReducer,
 	contactDetailReducer,
 	contactFavoriteReducer,
-} from './reducer';
+} from './reducers';
 
 export const store = configureStore({
 	reducer: {
