@@ -1,4 +1,4 @@
-import { TContact } from '@/types/contacts';
+import { Contact } from 'react-native-contacts';
 import contactFavoriteReducer, {
 	ContactFavoriteState,
 	contactFavoriteSlice,
@@ -16,8 +16,10 @@ describe('contactFavorite reducer', () => {
 	});
 
 	it('should handle setFavorite with a valid contact', () => {
-		const contact: TContact = { id: '1', name: 'Alice', phone: '+1 2313 1231' }; // Mock contact data
-		const action = contactFavoriteSlice.actions.setFavorite(contact);
+		const contact = { recordID: '1', displayName: 'Alice' };
+		const action = contactFavoriteSlice.actions.setFavorite(
+			contact as unknown as Contact,
+		);
 		const expectedState = {
 			data: contact,
 		};

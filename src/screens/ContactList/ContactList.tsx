@@ -13,7 +13,7 @@ import CardContactItem from '@/components/molecules/CardContactItem/CardContactI
 import { fetchContactList, setFavorite } from '@/stores/actions';
 import { useAppDispatch, useAppSelector } from '@/hooks/redux';
 import { Spacer } from '@/components/atoms';
-import { TContact } from '@/types/contacts';
+import { Contact } from 'react-native-contacts';
 
 function ContactList({ navigation }: RootScreenProps<'ContactList'>) {
 	const { t } = useTranslation(['contact_list']);
@@ -28,7 +28,7 @@ function ContactList({ navigation }: RootScreenProps<'ContactList'>) {
 	);
 
 	const handleFavorite = useCallback(
-		(contact: TContact | null) => () => dispatch(setFavorite(contact || null)),
+		(contact: Contact | null) => () => dispatch(setFavorite(contact || null)),
 		[],
 	);
 
@@ -74,18 +74,18 @@ function ContactList({ navigation }: RootScreenProps<'ContactList'>) {
 					data={data}
 					renderItem={({ item }) => (
 						<CardContactItem
-							onPress={handleGoToContactDetail(item.id)}
+							onPress={handleGoToContactDetail(item.recordID)}
 							onFavoritePress={handleFavorite(
-								item.id === favoritedContact?.id ? null : item,
+								item?.recordID === favoritedContact?.recordID ? null : item,
 							)}
-							id={item.id}
-							name={item.name}
-							phone={item.phone}
-							isFavorited={item.id === favoritedContact?.id}
+							id={item?.recordID}
+							name={item.displayName}
+							phone={item.phoneNumbers?.[0]?.number || ''}
+							isFavorited={item.recordID === favoritedContact?.recordID}
 						/>
 					)}
 					extraData={{ favoritedContact }}
-					keyExtractor={item => item.id}
+					keyExtractor={item => item.recordID}
 					estimatedItemSize={80}
 					ListHeaderComponent={
 						<>
@@ -116,11 +116,11 @@ function ContactList({ navigation }: RootScreenProps<'ContactList'>) {
 										Favorited Contact:
 									</Text>
 									<CardContactItem
-										onPress={handleGoToContactDetail(favoritedContact.id)}
+										onPress={handleGoToContactDetail(favoritedContact.recordID)}
 										onFavoritePress={handleFavorite(null)}
-										id={favoritedContact.id}
-										name={favoritedContact.name}
-										phone={favoritedContact.phone}
+										id={favoritedContact.recordID}
+										name={favoritedContact.displayName}
+										phone={favoritedContact.recordID}
 										isFavorited
 									/>
 									<Spacer

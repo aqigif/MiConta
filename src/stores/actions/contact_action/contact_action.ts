@@ -1,34 +1,30 @@
-import { TContactDetail, TContactList } from '@/types/contacts';
+import Contacts from 'react-native-contacts';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-import contactListDummyData from '@/dummyDatas/contacts_list.json';
-import { contactFavoriteSlice } from '../../reducers/contact_reducer/contact_favorite.reducer';
+import { PermissionsAndroid } from 'react-native';
+import { contactFavoriteSlice } from '@/stores/reducers/contact_reducer/contact_favorite.reducer';
 
 export const fetchContactList = createAsyncThunk('contacts', async () => {
-	return new Promise<TContactList>(resolve => {
-		setTimeout(() => {
-			resolve(
-				[...(contactListDummyData as TContactList)].sort((a, b) =>
-					a.name.localeCompare(b.name),
-				),
-			);
-		}, 500);
-	});
+	const status = await PermissionsAndroid.request(
+		PermissionsAndroid.PERMISSIONS.READ_CONTACTS,
+		{
+			title: 'Contacts',
+			message: 'This app would like to view your contacts.',
+			buttonPositive: 'Please accept bare mortal',
+		},
+	);
+	if (status !== 'granted') {
+		throw new Error('Permission denied');
+	}
+	const contacts = await Contacts.getAll();
+	return contacts.sort((a, b) => a.displayName.localeCompare(b.displayName));
 });
 
 export const fetchContactDetail = createAsyncThunk(
 	'contacts/:id',
 	async (id: string) => {
-		return new Promise<TContactDetail>((resolve, reject) => {
-			const contact = contactListDummyData.find(item => item.id === id) as
-				| TContactDetail
-				| undefined;
-
-			if (contact) {
-				resolve(contact);
-			}
-			reject(new Error('not found'));
-		});
+		const contact = await Contacts.getContactById(id);
+		return contact;
 	},
 );
 

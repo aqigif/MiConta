@@ -8232,6 +8232,7 @@ __metadata:
     react: 18.2.0
     react-i18next: ^14.1.0
     react-native: 0.74.1
+    react-native-contacts: ^7.0.8
     react-native-gesture-handler: ^2.16.0
     react-native-mmkv: ^2.12.2
     react-native-reanimated: ^3.9.0-rc.1
@@ -9317,6 +9318,15 @@ __metadata:
   version: 17.0.2
   resolution: "react-is@npm:17.0.2"
   checksum: 9d6d111d8990dc98bc5402c1266a808b0459b5d54830bbea24c12d908b536df7883f268a7868cfaedde3dd9d4e0d574db456f84d2e6df9c4526f99bb4b5344d8
+  languageName: node
+  linkType: hard
+
+"react-native-contacts@npm:^7.0.8":
+  version: 7.0.8
+  resolution: "react-native-contacts@npm:7.0.8"
+  peerDependencies:
+    react-native: ">=0.64.0"
+  checksum: 5a2f3084f47c935da60694cd60a96f27e7836dbd8b12a89561a22b93131df9c792d8ff75830d953ac4349782bf0c9265ea9d7b28312b20ba5731e90aeaf09b94
   languageName: node
   linkType: hard
 

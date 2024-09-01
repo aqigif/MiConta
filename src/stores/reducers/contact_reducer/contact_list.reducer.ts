@@ -1,9 +1,9 @@
-import { TContactList } from '@/types/contacts';
 import { createSlice } from '@reduxjs/toolkit';
+import { Contact } from 'react-native-contacts';
 import { fetchContactList } from '../../actions/contact_action/contact_action';
 
 export interface ContactListState {
-	data: TContactList;
+	data: Contact[];
 	loading: boolean;
 	error: string | null;
 }
@@ -28,6 +28,7 @@ export const contactSlice = createSlice({
 			state.data = action.payload;
 		});
 		builder.addCase(fetchContactList.rejected, (state, action) => {
+			state.data = [];
 			state.loading = false;
 			state.error = action.error.message || 'Failed to fetch contacts';
 		});

@@ -72,7 +72,6 @@ MICONTA/
 ├── patches/              # Stores patch files created by `patch-package` to fix issues in dependencies.
 ├── src/                  # Main source directory containing all the application's code.
 │   ├── components/       # Reusable UI components that are used throughout the app.
-│   ├── dummyDatas/       # Placeholder or mock data used for development and testing.
 │   ├── hooks/            # Custom React hooks for managing state and logic in a reusable manner.
 │   ├── navigators/       # Contains navigation configurations and setups using libraries like React Navigation.
 │   ├── screens/          # Individual screen components representing different pages or views in the app.

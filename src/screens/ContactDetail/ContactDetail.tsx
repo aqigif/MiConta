@@ -27,7 +27,7 @@ function ContactDetail({
 	const favoritedContact = useAppSelector(state => state.contactFavorite.data);
 
 	const isCurrentIsFavoritedContact = useMemo(
-		() => contact?.id === favoritedContact?.id,
+		() => contact?.recordID === favoritedContact?.recordID,
 		[contact, favoritedContact],
 	);
 
@@ -38,8 +38,8 @@ function ContactDetail({
 	}, [dispatch, id]);
 
 	const memoizedInitialsName = useMemo(
-		() => getInitials(contact?.name),
-		[contact?.name],
+		() => getInitials(contact?.displayName),
+		[contact?.displayName],
 	);
 
 	if (loading)
@@ -99,20 +99,20 @@ function ContactDetail({
 								gutters.marginBottom_12,
 							]}
 						>
-							{contact.name}
+							{contact.displayName}
 						</Text>
 						<Text
 							style={[fonts.gray800, fonts.size_16, gutters.marginBottom_12]}
 						>
-							{contact.email}
+							{contact.phoneNumbers?.[0]?.number}
 						</Text>
 						<Text
 							style={[fonts.gray800, fonts.size_16, gutters.marginBottom_12]}
 						>
-							{contact.phone}
+							{contact.emailAddresses?.[0]?.email}
 						</Text>
 						<Text style={[fonts.gray800, fonts.size_16]}>
-							{`${contact.address.street}, ${contact.address.city}, ${contact.address.state} ${contact.address.zip}`}
+							{contact?.postalAddresses?.[0]?.formattedAddress}
 						</Text>
 					</View>
 					<Button
