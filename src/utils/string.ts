@@ -9,7 +9,11 @@ export function getInitials(name?: string): string {
 	if (!name) return ''; // Handle empty or undefined name input
 
 	// Split the name into words
-	const nameParts = name.trim().split(' ');
+	const nameParts = name
+		.replaceAll('(', '')
+		.replaceAll(')', '')
+		.trim()
+		.split(' ');
 
 	// Extract the first letter of each word and join them
 	const initials = nameParts

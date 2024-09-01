@@ -66,6 +66,21 @@ function ContactList({ navigation }: RootScreenProps<'ContactList'>) {
 				</View>
 			</SafeScreen>
 		);
+	if (data.length === 0)
+		return (
+			<SafeScreen>
+				<View
+					style={[
+						layout.flex_1,
+						layout.itemsCenter,
+						layout.justifyCenter,
+						gutters.paddingHorizontal_12,
+					]}
+				>
+					<Text style={[fonts.gray800]}>Your Contact is empty</Text>
+				</View>
+			</SafeScreen>
+		);
 
 	return (
 		<SafeScreen>
