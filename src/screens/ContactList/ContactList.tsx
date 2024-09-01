@@ -149,7 +149,7 @@ function ContactList({ navigation }: RootScreenProps<'ContactList'>) {
 										onFavoritePress={handleFavorite(null)}
 										id={favoritedContact.recordID}
 										name={favoritedContact.displayName}
-										phone={favoritedContact.recordID}
+										phone={favoritedContact.phoneNumbers?.[0]?.number || ''}
 										isFavorited
 									/>
 									<Spacer
