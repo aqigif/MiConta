@@ -118,10 +118,10 @@ MICONTA/
   yarn ios
   ```
 
-## Demo App
+## Demo
 
-You can view a live demo of the MiConta App [here](#).  
+Watch a video demonstrating the features and functionality of the MiConta App here :
 
-## Evidence Video
+[Watch the demo video](./demo/demo.mov)
 
-Watch a video demonstrating the features and functionality of the MiConta App [here](#).
+You can try a demo of the MiConta App (Android Only) [here](https://drive.google.com/file/d/1jldgSgDKl3C0SBA94y7Nm2gbIvqCCUsg/view?usp=sharing).  
