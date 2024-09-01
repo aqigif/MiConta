@@ -1,9 +1,9 @@
-import { Contacts } from '@/types/contacts';
+import { TContactList } from '@/types/contacts';
 import { createSlice } from '@reduxjs/toolkit';
 import { fetchContactList } from '../actions/contact_action';
 
 export interface ContactListState {
-	data: Contacts;
+	data: TContactList;
 	loading: boolean;
 	error: string | null;
 }

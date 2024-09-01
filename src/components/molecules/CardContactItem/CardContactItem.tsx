@@ -1,11 +1,11 @@
 import { Card } from '@/components/atoms';
 import { useTheme } from '@/theme';
-import { Contact } from '@/types/contacts';
+import { TContact } from '@/types/contacts';
 import { getInitials } from '@/utils/string';
 import { useMemo } from 'react';
 import { Pressable, Text, View } from 'react-native';
 
-interface Props extends Contact {
+interface Props extends TContact {
 	onPress?: () => void;
 }
 

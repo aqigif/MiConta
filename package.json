@@ -9,7 +9,6 @@
     "start": "react-native start",
     "test": "jest",
     "type-check": "tsc",
-    "test:report": "jest --collectCoverage --coverageDirectory=\"./coverage\" --ci --reporters=default --reporters=jest-junit --coverage",
     "pod-install": "cd ios && pod install && cd ..",
     "postinstall": "npx patch-package"
   },
@@ -31,6 +30,7 @@
     "react-native-screens": "3.31.1",
     "react-native-svg": "^15.6.0",
     "react-redux": "^9.1.2",
+    "redux-persist": "^6.0.0",
     "zod": "^3.23.0"
   },
   "devDependencies": {

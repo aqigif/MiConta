@@ -1,9 +1,9 @@
-import { Contact } from '@/types/contacts';
+import { TContactDetail } from '@/types/contacts';
 import { createSlice } from '@reduxjs/toolkit';
 import { fetchContactDetail } from '../actions/contact_action';
 
 export interface ContactDetailState {
-	data?: Contact | null;
+	data?: TContactDetail | null;
 	loading: boolean;
 	error: string | null;
 }
