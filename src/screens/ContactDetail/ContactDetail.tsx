@@ -96,8 +96,14 @@ function ContactDetail({
 
 	return (
 		<SafeScreen>
-			<View style={[layout.flex_1, gutters.paddingHorizontal_12]}>
-				<View style={[gutters.paddingHorizontal_16, layout.flex_1]}>
+			<Pressable
+				style={[gutters.padding_24]}
+				onPress={() => navigation.goBack()}
+			>
+				<ArrowLeft />
+			</Pressable>
+			<View style={[layout.flex_1, gutters.paddingHorizontal_24]}>
+				<View style={[layout.flex_1]}>
 					<ScrollView
 						refreshControl={
 							<RefreshControl
@@ -107,12 +113,6 @@ function ContactDetail({
 						}
 						style={[layout.flex_1]}
 					>
-						<Pressable
-							style={[gutters.marginBottom_24]}
-							onPress={() => navigation.goBack()}
-						>
-							<ArrowLeft />
-						</Pressable>
 						<View style={[components.avatarBigCircle, gutters.marginBottom_16]}>
 							<Text style={[fonts.size_32, fonts.gray800]}>
 								{memoizedInitialsName}

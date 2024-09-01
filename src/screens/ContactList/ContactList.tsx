@@ -118,7 +118,7 @@ function ContactList({ navigation }: RootScreenProps<'ContactList'>) {
 					estimatedItemSize={80}
 					ListHeaderComponent={
 						<>
-							<View style={[gutters.marginTop_40]}>
+							<View style={[gutters.marginTop_24]}>
 								<Text
 									style={[
 										fonts.gray800,
