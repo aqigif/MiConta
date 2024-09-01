@@ -11,8 +11,7 @@ This project is built using the [React Native Boilerplate](https://github.com/th
 - [Available Scripts](#available-scripts)
 - [Useful Commands](#useful-commands)
 - [Test Results](#test-results)
-- [Demo App](#demo-app)
-- [Evidence Video](#evidence-video)
+- [Demo](#demo)
 
 ## Requirements
 
