@@ -3,25 +3,55 @@ import { View, Text, Pressable } from 'react-native';
 import { SafeScreen } from '@/components/template';
 import { useTheme } from '@/theme';
 
-import { Contact } from '@/types/contacts';
 import { ArrowLeft } from '@/theme/assets/icons';
 import { RootScreenProps } from '@/types/navigation';
+import { useAppDispatch, useAppSelector } from '@/hooks/redux';
+import { useEffect, useMemo } from 'react';
+import { fetchContactDetail } from '@/stores/actions/contact_action';
+import { getInitials } from '@/utils/string';
 
-const contact: Contact = {
-	id: '8a1e1757-3aac-450a-aebe-111df51c9740',
-	name: 'Aaron Phillips',
-	email: 'crussell@hotmail.com',
-	phone: '+1 001-245-8167',
-	address: {
-		street: '87864 Roberts Pike Suite 192',
-		city: 'Blairmouth',
-		state: 'Texas',
-		zip: '42265',
-	},
-};
+function ContactDetail({
+	navigation,
+	route,
+}: RootScreenProps<'ContactDetail'>) {
+	const { id } = route.params;
 
-function ContactDetail({ navigation }: RootScreenProps<'ContactDetail'>) {
 	const { gutters, fonts, layout, components } = useTheme();
+	const {
+		data: contact,
+		loading,
+		error,
+	} = useAppSelector(state => state.contactDetail);
+
+	const dispatch = useAppDispatch();
+
+	useEffect(() => {
+		if (id) {
+			void dispatch(fetchContactDetail(id));
+		}
+	}, [dispatch, id]);
+
+	const memoizedInitialsName = useMemo(
+		() => getInitials(contact?.name),
+		[contact?.name],
+	);
+
+	if (loading)
+		return (
+			<SafeScreen>
+				<View style={[layout.flex_1, gutters.paddingHorizontal_12]}>
+					<Text>Loading...</Text>
+				</View>
+			</SafeScreen>
+		);
+	if (error)
+		return (
+			<SafeScreen>
+				<View style={[layout.flex_1, gutters.paddingHorizontal_12]}>
+					<Text>Error: {error}</Text>
+				</View>
+			</SafeScreen>
+		);
 
 	return (
 		<SafeScreen>
@@ -33,18 +63,20 @@ function ContactDetail({ navigation }: RootScreenProps<'ContactDetail'>) {
 					>
 						<ArrowLeft />
 					</Pressable>
-					<View style={[components.avatarBigCircle, gutters.marginBottom_16]} />
+					<View style={[components.avatarBigCircle, gutters.marginBottom_16]}>
+						<Text style={[fonts.size_32]}>{memoizedInitialsName}</Text>
+					</View>
 					<Text style={[fonts.size_24, fonts.bold, gutters.marginBottom_12]}>
-						{contact.name}
+						{contact?.name}
 					</Text>
 					<Text style={[fonts.size_16, gutters.marginBottom_12]}>
-						{contact.email}
+						{contact?.email}
 					</Text>
 					<Text style={[fonts.size_16, gutters.marginBottom_12]}>
-						{contact.phone}
+						{contact?.phone}
 					</Text>
 					<Text style={[fonts.size_16]}>
-						{`${contact.address.street}, ${contact.address.city}, ${contact.address.state} ${contact.address.zip}`}
+						{`${contact?.address?.street}, ${contact?.address?.city}, ${contact?.address?.state} ${contact?.address?.zip}`}
 					</Text>
 				</View>
 			</View>

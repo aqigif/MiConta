@@ -39,6 +39,13 @@ module.exports = {
 		},
 	},
 	rules: {
+		'no-param-reassign': [
+			'error',
+			{
+				props: true,
+				ignorePropertyModificationsFor: ['state'],
+			},
+		],
 		'@typescript-eslint/no-unused-vars': 'error',
 		'global-require': 0,
 		'react-hooks/exhaustive-deps': 'off',
