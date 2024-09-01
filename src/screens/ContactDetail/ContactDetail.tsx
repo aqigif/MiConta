@@ -1,4 +1,10 @@
-import { View, Text, Pressable } from 'react-native';
+import {
+	View,
+	Text,
+	Pressable,
+	ScrollView,
+	RefreshControl,
+} from 'react-native';
 
 import { SafeScreen } from '@/components/template';
 import { useTheme } from '@/theme';
@@ -6,7 +12,7 @@ import { useTheme } from '@/theme';
 import { ArrowLeft, StarFilled, StarOutlined } from '@/theme/assets/icons';
 import { RootScreenProps } from '@/types/navigation';
 import { useAppDispatch, useAppSelector } from '@/hooks/redux';
-import { useEffect, useMemo } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import { fetchContactDetail, setFavorite } from '@/stores/actions';
 import { getInitials } from '@/utils/string';
 import { Button } from '@/components/atoms';
@@ -25,11 +31,24 @@ function ContactDetail({
 		error,
 	} = useAppSelector(state => state.contactDetail);
 	const favoritedContact = useAppSelector(state => state.contactFavorite.data);
+	const [isRefresh, setRefresh] = useState(false);
 
 	const isCurrentIsFavoritedContact = useMemo(
 		() => contact?.recordID === favoritedContact?.recordID,
 		[contact, favoritedContact],
 	);
+
+	const handleRefresh = useCallback(() => {
+		setRefresh(true);
+		setTimeout(() => {
+			if (id) {
+				void dispatch(fetchContactDetail(id));
+			}
+			setTimeout(() => {
+				setRefresh(false);
+			}, 500);
+		}, 500);
+	}, [id]);
 
 	useEffect(() => {
 		if (id) {
@@ -79,7 +98,15 @@ function ContactDetail({
 		<SafeScreen>
 			<View style={[layout.flex_1, gutters.paddingHorizontal_12]}>
 				<View style={[gutters.paddingHorizontal_16, layout.flex_1]}>
-					<View style={[layout.flex_1]}>
+					<ScrollView
+						refreshControl={
+							<RefreshControl
+								refreshing={isRefresh}
+								onRefresh={() => handleRefresh()}
+							/>
+						}
+						style={[layout.flex_1]}
+					>
 						<Pressable
 							style={[gutters.marginBottom_24]}
 							onPress={() => navigation.goBack()}
@@ -114,7 +141,7 @@ function ContactDetail({
 						<Text style={[fonts.gray800, fonts.size_16]}>
 							{contact?.postalAddresses?.[0]?.formattedAddress}
 						</Text>
-					</View>
+					</ScrollView>
 					<Button
 						onPress={() =>
 							dispatch(

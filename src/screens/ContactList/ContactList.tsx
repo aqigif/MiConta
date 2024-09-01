@@ -6,7 +6,7 @@ import { useTheme } from '@/theme';
 
 import { FlashList } from '@shopify/flash-list';
 
-import { useCallback, useEffect } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
 import { RootScreenProps } from '@/types/navigation';
 import CardContactItem from '@/components/molecules/CardContactItem/CardContactItem';
@@ -22,10 +22,22 @@ function ContactList({ navigation }: RootScreenProps<'ContactList'>) {
 	const { data, loading, error } = useAppSelector(state => state.contactList);
 	const favoritedContact = useAppSelector(state => state.contactFavorite.data);
 
+	const [isRefresh, setRefresh] = useState(false);
+
 	const handleGoToContactDetail = useCallback(
 		(id: string) => () => navigation.navigate('ContactDetail', { id }),
 		[navigation],
 	);
+
+	const handleRefresh = useCallback(() => {
+		setRefresh(true);
+		setTimeout(() => {
+			void dispatch(fetchContactList());
+			setTimeout(() => {
+				setRefresh(false);
+			}, 500);
+		}, 500);
+	}, []);
 
 	const handleFavorite = useCallback(
 		(contact: Contact | null) => () => dispatch(setFavorite(contact || null)),
@@ -99,6 +111,8 @@ function ContactList({ navigation }: RootScreenProps<'ContactList'>) {
 							isFavorited={item.recordID === favoritedContact?.recordID}
 						/>
 					)}
+					onRefresh={handleRefresh}
+					refreshing={isRefresh}
 					extraData={{ favoritedContact }}
 					keyExtractor={item => item.recordID}
 					estimatedItemSize={80}
