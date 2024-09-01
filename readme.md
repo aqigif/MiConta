@@ -145,4 +145,4 @@ Watch a video demonstrating the features and functionality of the MiConta App:
 
 [![Demo MiConta](https://img.youtube.com/vi/ez7qgcawKbI/0.jpg)](https://www.youtube.com/watch?v=ez7qgcawKbI)
 
-or You can try a MiConta App direcly (Android Only) [here](https://github.com/aqigif/MiConta/releases/tag/1.0).  
+or You can try a MiConta App direcly (Android Only) [here](https://github.com/aqigif/MiConta/releases/tag/1.1).  
