@@ -1,8 +1,8 @@
-import { TContactDetail } from '@/types/contacts';
+import { TContact } from '@/types/contacts';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 export interface ContactFavoriteState {
-	data?: TContactDetail | null;
+	data?: TContact | null;
 }
 
 const initialState: ContactFavoriteState = {
@@ -13,7 +13,7 @@ export const contactDetailSlice = createSlice({
 	name: 'contactFavorite',
 	initialState,
 	reducers: {
-		setFavorite: (state, action: PayloadAction<TContactDetail | null>) => {
+		setFavorite: (state, action: PayloadAction<TContact | null>) => {
 			state.data = action.payload;
 		},
 	},

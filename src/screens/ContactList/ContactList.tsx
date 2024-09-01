@@ -13,10 +13,13 @@ import CardContactItem from '@/components/molecules/CardContactItem/CardContactI
 import { fetchContactList } from '@/stores/actions/contact_action';
 import { useAppDispatch, useAppSelector } from '@/hooks/redux';
 import { Spacer } from '@/components/atoms';
+import { setFavorite } from '@/stores/reducer/contact_favorite.reducer';
+import { TContact } from '@/types/contacts';
 
 function ContactList({ navigation }: RootScreenProps<'ContactList'>) {
 	const { t } = useTranslation(['contact_list']);
 	const { gutters, fonts, layout, backgrounds } = useTheme();
+	const dispatch = useAppDispatch();
 	const { data, loading, error } = useAppSelector(state => state.contactList);
 	const favoritedContact = useAppSelector(state => state.contactFavorite.data);
 
@@ -25,7 +28,10 @@ function ContactList({ navigation }: RootScreenProps<'ContactList'>) {
 		[navigation],
 	);
 
-	const dispatch = useAppDispatch();
+	const handleFavorite = useCallback(
+		(contact: TContact | null) => () => dispatch(setFavorite(contact || null)),
+		[],
+	);
 
 	useEffect(() => {
 		void dispatch(fetchContactList());
@@ -56,9 +62,11 @@ function ContactList({ navigation }: RootScreenProps<'ContactList'>) {
 					renderItem={({ item }) => (
 						<CardContactItem
 							onPress={handleGoToContactDetail(item.id)}
+							onFavoritePress={handleFavorite(item)}
 							id={item.id}
 							name={item.name}
 							phone={item.phone}
+							isFavorited={item.id === favoritedContact?.id}
 						/>
 					)}
 					extraData={{ favoritedContact }}
@@ -94,9 +102,11 @@ function ContactList({ navigation }: RootScreenProps<'ContactList'>) {
 									</Text>
 									<CardContactItem
 										onPress={handleGoToContactDetail(favoritedContact.id)}
+										onFavoritePress={handleFavorite(null)}
 										id={favoritedContact.id}
 										name={favoritedContact.name}
 										phone={favoritedContact.phone}
+										isFavorited
 									/>
 									<Spacer
 										style={[backgrounds.gray100, gutters.marginBottom_12]}

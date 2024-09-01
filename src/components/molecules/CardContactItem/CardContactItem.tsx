@@ -1,15 +1,24 @@
 import { Card } from '@/components/atoms';
 import { useTheme } from '@/theme';
+import { StarFilled, StarOutlined } from '@/theme/assets/icons';
 import { TContact } from '@/types/contacts';
 import { getInitials } from '@/utils/string';
 import { useMemo } from 'react';
-import { Pressable, Text, View } from 'react-native';
+import { Pressable, Text, TouchableOpacity, View } from 'react-native';
 
 interface Props extends TContact {
 	onPress?: () => void;
+	onFavoritePress?: () => void;
+	isFavorited?: boolean;
 }
 
-function CardContactItem({ onPress = () => {}, name, phone }: Props) {
+function CardContactItem({
+	onPress = () => {},
+	onFavoritePress = () => {},
+	isFavorited = false,
+	name,
+	phone,
+}: Props) {
 	const { gutters, fonts, layout, components } = useTheme();
 
 	const memoizedInitialsName = useMemo(() => getInitials(name), [name]);
@@ -24,12 +33,15 @@ function CardContactItem({ onPress = () => {}, name, phone }: Props) {
 					<View style={[components.avatarCircle]}>
 						<Text>{memoizedInitialsName}</Text>
 					</View>
-					<View>
+					<View style={[layout.flex_1]}>
 						<Text style={[fonts.gray800, fonts.bold, fonts.size_16]}>
 							{name}
 						</Text>
 						<Text style={[fonts.gray800, fonts.size_12]}>{phone}</Text>
 					</View>
+					<TouchableOpacity onPress={onFavoritePress}>
+						{isFavorited ? <StarFilled /> : <StarOutlined />}
+					</TouchableOpacity>
 				</Card>
 			)}
 		</Pressable>

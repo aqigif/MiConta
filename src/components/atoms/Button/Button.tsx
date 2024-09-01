@@ -3,10 +3,11 @@ import { Pressable, PressableProps, Text, View } from 'react-native';
 import { useTheme } from '@/theme';
 
 interface Props extends PressableProps {
-	children: string | JSX.Element | JSX.Element[];
+	label: string | JSX.Element;
+	icon?: JSX.Element | JSX.Element[] | null;
 }
 
-function Button({ children, disabled, ...props }: Props) {
+function Button({ label, icon = null, disabled, ...props }: Props) {
 	const { layout, gutters, borders, backgrounds, fonts } = useTheme();
 
 	return (
@@ -40,6 +41,10 @@ function Button({ children, disabled, ...props }: Props) {
 							borders.w_1,
 							borders.rounded_16,
 							backgrounds.gray50,
+							layout.row,
+							layout.justifyCenter,
+							layout.itemsCenter,
+							gutters.gap_12,
 							{
 								marginTop: -12,
 								marginLeft: -4,
@@ -47,7 +52,8 @@ function Button({ children, disabled, ...props }: Props) {
 							disabled && backgrounds.gray100,
 						]}
 					>
-						{typeof children === 'string' ? (
+						{icon}
+						{typeof label === 'string' ? (
 							<Text
 								style={[
 									fonts.size_16,
@@ -55,10 +61,10 @@ function Button({ children, disabled, ...props }: Props) {
 									disabled && fonts.gray200,
 								]}
 							>
-								{children}
+								{label}
 							</Text>
 						) : (
-							children
+							label
 						)}
 					</View>
 				</View>

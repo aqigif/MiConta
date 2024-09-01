@@ -3,7 +3,7 @@ import { View, Text, Pressable } from 'react-native';
 import { SafeScreen } from '@/components/template';
 import { useTheme } from '@/theme';
 
-import { ArrowLeft } from '@/theme/assets/icons';
+import { ArrowLeft, StarFilled, StarOutlined } from '@/theme/assets/icons';
 import { RootScreenProps } from '@/types/navigation';
 import { useAppDispatch, useAppSelector } from '@/hooks/redux';
 import { useEffect, useMemo } from 'react';
@@ -93,9 +93,11 @@ function ContactDetail({
 								setFavorite(isCurrentIsFavoritedContact ? null : contact),
 							)
 						}
-					>
-						{isCurrentIsFavoritedContact ? 'Unfavorite' : 'Favorite'}
-					</Button>
+						label={isCurrentIsFavoritedContact ? 'Unfavorite' : 'Favorite'}
+						icon={
+							isCurrentIsFavoritedContact ? <StarFilled /> : <StarOutlined />
+						}
+					/>
 				</View>
 			</View>
 		</SafeScreen>
