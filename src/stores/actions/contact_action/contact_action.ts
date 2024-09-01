@@ -5,6 +5,7 @@ import { PermissionsAndroid, PermissionStatus, Platform } from 'react-native';
 import { contactFavoriteSlice } from '@/stores/reducers/contact_reducer/contact_favorite.reducer';
 
 export const fetchContactList = createAsyncThunk('contacts', async () => {
+	/** request permission in ios will handled by Contacts.getAll  */
 	let status: PermissionStatus = 'granted';
 	if (Platform.OS === 'android') {
 		status = await PermissionsAndroid.request(

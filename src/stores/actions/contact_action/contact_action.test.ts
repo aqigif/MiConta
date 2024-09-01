@@ -19,6 +19,9 @@ jest.mock('react-native', () => ({
 			DENIED: 'denied',
 		},
 	},
+	Platform: {
+		OS: 'android',
+	},
 }));
 
 jest.mock('react-native-contacts', () => ({
