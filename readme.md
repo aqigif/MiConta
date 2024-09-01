@@ -120,8 +120,6 @@ MICONTA/
 
 ## Demo
 
-Watch a video demonstrating the features and functionality of the MiConta App here :
+Watch a video demonstrating the features and functionality of the MiConta App [here](https://youtube.com/shorts/ez7qgcawKbI?si=iZcMIE9P3-u0Vw-J) 
 
-[Watch the demo video](./demo/demo.mov)
-
-You can try a demo of the MiConta App (Android Only) [here](https://drive.google.com/file/d/1jldgSgDKl3C0SBA94y7Nm2gbIvqCCUsg/view?usp=sharing).  
+or You can try a MiConta App direcly (Android Only) [here](https://drive.google.com/file/d/1jldgSgDKl3C0SBA94y7Nm2gbIvqCCUsg/view?usp=sharing).  
