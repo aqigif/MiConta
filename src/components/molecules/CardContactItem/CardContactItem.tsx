@@ -31,7 +31,7 @@ function CardContactItem({
 					style={[layout.row, layout.itemsCenter, gutters.gap_12]}
 				>
 					<View style={[components.avatarCircle]}>
-						<Text>{memoizedInitialsName}</Text>
+						<Text style={[fonts.gray800]}>{memoizedInitialsName}</Text>
 					</View>
 					<View style={[layout.flex_1]}>
 						<Text style={[fonts.gray800, fonts.bold, fonts.size_16]}>

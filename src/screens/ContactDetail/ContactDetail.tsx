@@ -72,18 +72,31 @@ function ContactDetail({
 							<ArrowLeft />
 						</Pressable>
 						<View style={[components.avatarBigCircle, gutters.marginBottom_16]}>
-							<Text style={[fonts.size_32]}>{memoizedInitialsName}</Text>
+							<Text style={[fonts.size_32, fonts.gray800]}>
+								{memoizedInitialsName}
+							</Text>
 						</View>
-						<Text style={[fonts.size_24, fonts.bold, gutters.marginBottom_12]}>
+						<Text
+							style={[
+								fonts.gray800,
+								fonts.size_24,
+								fonts.bold,
+								gutters.marginBottom_12,
+							]}
+						>
 							{contact.name}
 						</Text>
-						<Text style={[fonts.size_16, gutters.marginBottom_12]}>
+						<Text
+							style={[fonts.gray800, fonts.size_16, gutters.marginBottom_12]}
+						>
 							{contact.email}
 						</Text>
-						<Text style={[fonts.size_16, gutters.marginBottom_12]}>
+						<Text
+							style={[fonts.gray800, fonts.size_16, gutters.marginBottom_12]}
+						>
 							{contact.phone}
 						</Text>
-						<Text style={[fonts.size_16]}>
+						<Text style={[fonts.gray800, fonts.size_16]}>
 							{`${contact.address.street}, ${contact.address.city}, ${contact.address.state} ${contact.address.zip}`}
 						</Text>
 					</View>

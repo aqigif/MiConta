@@ -59,6 +59,7 @@ function Button({ label, icon = null, disabled, ...props }: Props) {
 									fonts.size_16,
 									fonts.alignCenter,
 									disabled && fonts.gray200,
+									fonts.gray800,
 								]}
 							>
 								{label}
