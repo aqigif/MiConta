@@ -40,16 +40,30 @@ function ContactList({ navigation }: RootScreenProps<'ContactList'>) {
 	if (loading)
 		return (
 			<SafeScreen>
-				<View style={[layout.flex_1, gutters.paddingHorizontal_12]}>
-					<Text>Loading...</Text>
+				<View
+					style={[
+						layout.flex_1,
+						layout.itemsCenter,
+						layout.justifyCenter,
+						gutters.paddingHorizontal_12,
+					]}
+				>
+					<Text style={[fonts.gray800]}>Loading...</Text>
 				</View>
 			</SafeScreen>
 		);
 	if (error)
 		return (
 			<SafeScreen>
-				<View style={[layout.flex_1, gutters.paddingHorizontal_12]}>
-					<Text>Error: {error}</Text>
+				<View
+					style={[
+						layout.flex_1,
+						layout.itemsCenter,
+						layout.justifyCenter,
+						gutters.paddingHorizontal_12,
+					]}
+				>
+					<Text style={[fonts.gray800]}>Error: {error}</Text>
 				</View>
 			</SafeScreen>
 		);
