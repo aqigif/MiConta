@@ -12,7 +12,10 @@ export function getInitials(name?: string): string {
 	const nameParts = name.trim().split(' ');
 
 	// Extract the first letter of each word and join them
-	const initials = nameParts.map(part => part[0].toUpperCase()).join('');
+	const initials = nameParts
+		.filter(item => item)
+		.map(part => part[0].toUpperCase())
+		.join('');
 
 	return initials;
 }
