@@ -104,19 +104,18 @@ Some functionality on this application has been tested. Below are the test resul
 
 ```bash
 ➜  MiConta git:(main) ✗ yarn test
- PASS  src/stores/actions/contact_action/contact_action.test.ts
  PASS  src/theme/ThemeProvider/ThemeProvider.test.tsx
  PASS  src/components/molecules/Brand/Brand.test.tsx
- PASS  src/stores/reducers/contact_reducer/contact_list.reducer.test.ts
- PASS  src/stores/reducers/contact_reducer/contact_favorite.reducer.test.ts
+ PASS  src/stores/actions/contact_action/contact_action.test.ts
  PASS  src/stores/reducers/contact_reducer/contact_detail.reducer.test.ts
+ PASS  src/stores/reducers/contact_reducer/contact_favorite.reducer.test.ts
+ PASS  src/stores/reducers/contact_reducer/contact_list.reducer.test.ts
  PASS  src/utils/string.test.ts
 
 Test Suites: 7 passed, 7 total
-Tests:       30 passed, 30 total
+Tests:       29 passed, 29 total
 Snapshots:   0 total
-Time:        1.453 s
-Ran all test suites.
+Time:        0.987 s, estimated 1 s
 ```
 
 ## Useful Commands
