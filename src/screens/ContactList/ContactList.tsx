@@ -10,7 +10,7 @@ import { useCallback, useEffect } from 'react';
 
 import { RootScreenProps } from '@/types/navigation';
 import CardContactItem from '@/components/molecules/CardContactItem/CardContactItem';
-import { fetchContactList, setFavorite } from '@/stores/actions/contact_action';
+import { fetchContactList, setFavorite } from '@/stores/actions';
 import { useAppDispatch, useAppSelector } from '@/hooks/redux';
 import { Spacer } from '@/components/atoms';
 import { TContact } from '@/types/contacts';

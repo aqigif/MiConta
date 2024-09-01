@@ -1,6 +1,6 @@
 import { TContactDetail } from '@/types/contacts';
 import { createSlice } from '@reduxjs/toolkit';
-import { fetchContactDetail } from '../../actions/contact_action';
+import { fetchContactDetail } from '../../actions/contact_action/contact_action';
 
 export interface ContactDetailState {
 	data?: TContactDetail | null;

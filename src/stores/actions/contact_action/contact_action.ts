@@ -2,7 +2,7 @@ import { TContactDetail, TContactList } from '@/types/contacts';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
 import contactListDummyData from '@/dummyDatas/contacts_list.json';
-import { contactFavoriteSlice } from '../reducers/contact_reducer/contact_favorite.reducer';
+import { contactFavoriteSlice } from '../../reducers/contact_reducer/contact_favorite.reducer';
 
 export const fetchContactList = createAsyncThunk('contacts', async () => {
 	return new Promise<TContactList>(resolve => {
