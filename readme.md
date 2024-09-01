@@ -10,6 +10,7 @@ This project is built using the [React Native Boilerplate](https://github.com/th
 - [Project Structure](#project-structure)
 - [Available Scripts](#available-scripts)
 - [Useful Commands](#useful-commands)
+- [Test Results](#test-results)
 - [Demo App](#demo-app)
 - [Evidence Video](#evidence-video)
 
@@ -99,6 +100,26 @@ MICONTA/
 - **`yarn type-check`**: Run TypeScript type checking.
 - **`yarn pod-install`**: Install iOS dependencies using CocoaPods.
 - **`yarn postinstall`**: Apply patches after installing packages.
+
+## Test Results
+Some functionality on this application has been tested. Below are the test results:
+
+```bash
+➜  MiConta git:(main) ✗ yarn test
+ PASS  src/stores/actions/contact_action/contact_action.test.ts
+ PASS  src/theme/ThemeProvider/ThemeProvider.test.tsx
+ PASS  src/components/molecules/Brand/Brand.test.tsx
+ PASS  src/stores/reducers/contact_reducer/contact_list.reducer.test.ts
+ PASS  src/stores/reducers/contact_reducer/contact_favorite.reducer.test.ts
+ PASS  src/stores/reducers/contact_reducer/contact_detail.reducer.test.ts
+ PASS  src/utils/string.test.ts
+
+Test Suites: 7 passed, 7 total
+Tests:       30 passed, 30 total
+Snapshots:   0 total
+Time:        1.453 s
+Ran all test suites.
+```
 
 ## Useful Commands
 
