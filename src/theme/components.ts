@@ -6,6 +6,15 @@ interface AllStyle
 
 export default ({ layout, backgrounds, fonts }: ComponentTheme) => {
 	return {
+		avatarBigCircle: {
+			...layout.justifyCenter,
+			...layout.itemsCenter,
+			...backgrounds.purple100,
+			...fonts.gray400,
+			height: 100,
+			width: 100,
+			borderRadius: 50,
+		},
 		avatarCircle: {
 			...layout.justifyCenter,
 			...layout.itemsCenter,
@@ -20,9 +29,9 @@ export default ({ layout, backgrounds, fonts }: ComponentTheme) => {
 			...layout.itemsCenter,
 			...backgrounds.purple100,
 			...fonts.gray400,
-			height: 70,
-			width: 70,
-			borderRadius: 35,
+			height: 75,
+			width: 75,
+			borderRadius: 75 / 2,
 		},
 		circle250: {
 			borderRadius: 140,

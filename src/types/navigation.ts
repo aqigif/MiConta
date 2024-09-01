@@ -4,7 +4,9 @@ export type RootStackParamList = {
 	Startup: undefined;
 	Example: undefined;
 	ContactList: undefined;
-	ContactDetail: undefined;
+	ContactDetail: {
+		id: string;
+	};
 };
 
 export type RootScreenProps<

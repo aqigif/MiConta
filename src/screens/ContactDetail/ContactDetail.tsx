@@ -1,9 +1,11 @@
-import { View, Text } from 'react-native';
+import { View, Text, Pressable } from 'react-native';
 
 import { SafeScreen } from '@/components/template';
 import { useTheme } from '@/theme';
 
 import { Contact } from '@/types/contacts';
+import { ArrowLeft } from '@/theme/assets/icons';
+import { RootScreenProps } from '@/types/navigation';
 
 const contact: Contact = {
 	id: '8a1e1757-3aac-450a-aebe-111df51c9740',
@@ -18,13 +20,20 @@ const contact: Contact = {
 	},
 };
 
-function ContactDetail() {
-	const { gutters, fonts, layout } = useTheme();
+function ContactDetail({ navigation }: RootScreenProps<'ContactDetail'>) {
+	const { gutters, fonts, layout, components } = useTheme();
 
 	return (
 		<SafeScreen>
 			<View style={[layout.flex_1, gutters.paddingHorizontal_12]}>
 				<View style={[gutters.paddingHorizontal_16]}>
+					<Pressable
+						style={[gutters.marginBottom_24]}
+						onPress={() => navigation.goBack()}
+					>
+						<ArrowLeft />
+					</Pressable>
+					<View style={[components.avatarBigCircle, gutters.marginBottom_16]} />
 					<Text style={[fonts.size_24, fonts.bold, gutters.marginBottom_12]}>
 						{contact.name}
 					</Text>

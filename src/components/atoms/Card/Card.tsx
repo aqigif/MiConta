@@ -2,12 +2,14 @@
 import { View, ViewStyle } from 'react-native';
 import { useTheme } from '@/theme';
 
-function ContactList({
+function Card({
 	children,
 	style = {},
+	isPressed = false,
 }: {
 	children: JSX.Element | JSX.Element[];
 	style?: ViewStyle | ViewStyle[];
+	isPressed?: boolean;
 }) {
 	const { layout, gutters, borders, backgrounds } = useTheme();
 
@@ -20,9 +22,9 @@ function ContactList({
 				borders.w_1,
 				borders.rounded_16,
 				{
-					paddingHorizontal: 4,
-					paddingBottom: 6,
-					marginBottom: 10,
+					paddingHorizontal: isPressed ? 0 : 4,
+					paddingBottom: isPressed ? 0 : 6,
+					marginBottom: isPressed ? 16 : 10,
 				},
 			]}
 		>
@@ -45,4 +47,4 @@ function ContactList({
 	);
 }
 
-export default ContactList;
+export default Card;
