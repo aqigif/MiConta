@@ -18,6 +18,7 @@
     "@react-navigation/stack": "^6.3.29",
     "@reduxjs/toolkit": "^2.2.7",
     "@shopify/flash-list": "^1.7.1",
+    "expo": "^51.0.0",
     "i18next": "^23.11.2",
     "ky": "^1.2.4",
     "react": "18.2.0",
@@ -71,5 +72,18 @@
   "engines": {
     "node": ">=18"
   },
-  "packageManager": "yarn@3.6.4"
+  "packageManager": "yarn@3.6.4",
+  "expo": {
+    "autolinking": {
+      "exclude": [
+        "expo-asset",
+        "expo-constants",
+        "expo-eas-client",
+        "expo-file-system",
+        "expo-font",
+        "expo-json-utils",
+        "expo-keep-awake"
+      ]
+    }
+  }
 }
