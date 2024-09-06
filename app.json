@@ -2,8 +2,8 @@
   "name": "MiConta",
   "displayName": "MiConta",
   "expo": {
-    "name": "MyApp",
-    "slug": "MyApp",
+    "name": "MiConta",
+    "slug": "miconta",
     "ios": {
       "bundleIdentifier": "com.miconta"
     },
