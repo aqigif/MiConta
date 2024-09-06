@@ -84,8 +84,8 @@ android {
         applicationId "com.miconta"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 2
-        versionName "1.1"
+        versionCode 120
+        versionName "1.2.0"
     }
     signingConfigs {
         debug {

@@ -10,7 +10,7 @@
     "android": {
       "package": "com.miconta"
     },
-    "runtimeVersion": "1.1.0",
+    "runtimeVersion": "1.2.0",
     "updates": {
       "url": "https://u.expo.dev/baefe5e7-3ae0-4706-9fb5-33ad47d909ff"
     }
