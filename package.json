@@ -79,10 +79,8 @@
       "exclude": [
         "expo-asset",
         "expo-constants",
-        "expo-eas-client",
         "expo-file-system",
         "expo-font",
-        "expo-json-utils",
         "expo-keep-awake"
       ]
     }
