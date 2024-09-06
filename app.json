@@ -1,4 +1,18 @@
 {
   "name": "MiConta",
-  "displayName": "MiConta"
+  "displayName": "MiConta",
+  "expo": {
+    "name": "MyApp",
+    "slug": "MyApp",
+    "ios": {
+      "bundleIdentifier": "com.miconta"
+    },
+    "android": {
+      "package": "com.miconta"
+    },
+    "runtimeVersion": "1.1.0",
+    "updates": {
+      "url": "https://u.expo.dev/baefe5e7-3ae0-4706-9fb5-33ad47d909ff"
+    }
+  }
 }
