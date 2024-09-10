@@ -1,6 +1,6 @@
 # MiConta App
 
-This project is built using the [React Native Boilerplate](https://github.com/thecodingmachine/react-native-boilerplate) by TheCodingMachine, customized for take home test submission.
+This project is built using the [React Native Boilerplate](https://github.com/thecodingmachine/react-native-boilerplate) by TheCodingMachine.
 
 ## Table of Contents
 
